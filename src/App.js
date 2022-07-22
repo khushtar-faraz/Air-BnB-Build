@@ -8,6 +8,7 @@ import LargeCard from "./components/LargeCard";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 import Search from "./Search";
+import ListedStay from "./components/ListedStay";
 
 function App() {
   const [exploreData, setExploreData] = useState([]);
@@ -75,6 +76,15 @@ function App() {
         }
       />
       <Route path="/search" element={<Search />} />
+      <Route
+        path="/search/listedstay"
+        element={
+          <>
+            <Header />
+            <ListedStay />
+          </>
+        }
+      />
     </Routes>
   );
 }

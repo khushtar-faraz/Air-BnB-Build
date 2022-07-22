@@ -1,10 +1,33 @@
 import { HeartIcon } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function InfoCard({ img, location, title, description, star, price, total, noOfDays, noOfGuests }) {
+function InfoCard({
+  img,
+  location,
+  title,
+  description,
+  star,
+  price,
+  total,
+  noOfDays,
+  noOfGuests,
+}) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate({
+      pathname: "/search/listedstay",
+      search: ``,
+    });
+  };
+
   return (
-    <div className="flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t">
+    <div
+      onClick={handleClick}
+      className="flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t"
+    >
       <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0">
         <img
           className="w-full h-full object-cover rounded-2xl"
@@ -26,8 +49,12 @@ function InfoCard({ img, location, title, description, star, price, total, noOfD
             {star}
           </p>
           <div>
-            <p className="text-lg lg:text-2xl font-semibold pb-2">£{price} / night</p>
-            <p className="text-right font-extralight">£{price*noOfDays*noOfGuests}</p>
+            <p className="text-lg lg:text-2xl font-semibold pb-2">
+              £{price} / night
+            </p>
+            <p className="text-right font-extralight">
+              £{price * noOfDays * noOfGuests} Total
+            </p>
           </div>
         </div>
       </div>
