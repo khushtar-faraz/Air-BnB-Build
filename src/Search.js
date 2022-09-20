@@ -24,6 +24,7 @@ function Search() {
       (1000 * 3600 * 24) +
     1;
   const range = `${formattedStartDate} - ${formattedEndDate}`;
+
   useEffect(() => {
     const fetchData = () => {
       if (input.trim().toLowerCase() === "london") {
@@ -41,6 +42,7 @@ function Search() {
       }
     };
     fetchData();
+    window.scrollTo(0, 0);
   }, []);
 
   const coordinates = searchData.map((result) => ({
@@ -54,7 +56,7 @@ function Search() {
 
   return (
     <div>
-      <Header placeholder={`${input} | ${range} | ${noOfGuests} guests`} />
+      <Header placeholder={`${input} | ${range} | ${noOfGuests} guests`} searchDisabled/>
       <main className="flex">
         {!loading && searchData.length > 0 && (
           <section className="flex-grow pt-14 px-6">
@@ -78,6 +80,8 @@ function Search() {
                       price={price}
                       noOfDays={noOfDays}
                       noOfGuests={noOfGuests}
+                      startDate={startDate}
+                      endDate={endDate}
                     />
                   )
                 )}

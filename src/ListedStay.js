@@ -9,19 +9,39 @@ import {
   WifiIcon,
 } from "@heroicons/react/outline";
 import { StarIcon } from "@heroicons/react/solid";
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { format } from "date-fns";
+import HorizontalDivider from "./components/HorizontalDivider";
 
 function ListedStay() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const noOfGuests = queryParams.get("noOfGuests");
+  const startDate = queryParams.get("startDate");
+  const endDate = queryParams.get("endDate");
+  const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
+  const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
+  const description = queryParams.get("description");
+  const title = queryParams.get("title");
+  const star = queryParams.get("star");
+  const price = queryParams.get("price");
+  const total = queryParams.get("total");
+  const navigate=useNavigate();
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="sm:px-[10px] md:px-[25px] lg:px-[40px] mx-4 md:mx-8">
       <div className=" pt-[24px]">
-        <h1 className="text-[26px] font-[600]">
-          Lovely Double Room in Camden, NW5
-        </h1>
+        <h1 className="text-[26px] font-[600]">{title}</h1>
         <div className="mt-2 mb-8">
           <span className="flex items-center">
             <StarIcon className="text-red-400 h-5" />
-            <p className="pl-[5px] font-[600]">4.43 |</p>
+            <p className="pl-[5px] font-[600]">{star} |</p>
             <p className="pl-[7px] underline underline-offset-4 font-[600]">
               14 reviews
             </p>
@@ -62,14 +82,12 @@ function ListedStay() {
         </div>
       </div>
       <div className="flex mt-8">
-        <div>
+        <div className="grow">
           <h2 className="font-[600] text-[22px]">
             Private room in rental unit hosted by Sophie
           </h2>
-          <p className="text-gray-700 mb-8">
-            1 guest | 1 bedroom | 1 bed | 1 shared bathroom
-          </p>
-          <div className="w-full border-t-[#dddddd] mt-4 border-t-[1px]" />
+          <p className="text-gray-700 mb-8">{description}</p>
+          <HorizontalDivider />
           <div className="mt-8 mb-8">
             <div className="flex mb-6">
               <div>
@@ -103,12 +121,12 @@ function ListedStay() {
               </div>
               <div className="pl-4">
                 <h3 className="text-[16px] leading-[20px] font-[500] mb-[4px]">
-                  Free cancellation
+                  Free cancellation for 48 hours.
                 </h3>
               </div>
             </div>
           </div>
-          <div className="w-full border-t-[#dddddd] mt-4 border-t-[1px]" />
+          <HorizontalDivider />
           <div className="mt-10 mb-16">
             <h2 className="font-[600] text-[22px]">Where you'll sleep</h2>
             <div className="mt-4 border-[#dddddd] border-[1px] rounded-[12px] p-6 w-[65%]  ">
@@ -121,7 +139,7 @@ function ListedStay() {
               <p className="text-black font-[200]">1 single bed</p>
             </div>
           </div>
-          <div className="w-full border-t-[#dddddd] mt-4 border-t-[1px]" />
+          <HorizontalDivider />
           <div className="mt-10 mb-16">
             <h2 className="font-[600] text-[22px] mb-6">
               What this place offers
@@ -167,7 +185,47 @@ function ListedStay() {
           </div>
         </div>
 
-        <div></div>
+        <div className="w-[50%] h-auto">
+          <div className="w-[55%] border-[#dddddd] border-[1px] rounded-[12px] h-auto ml-auto p-[24px] shadow-lg sticky top-28">
+            <span className="flex items-center pb-6">
+              <p className="font-[700] text-[22px]">£{price}</p>
+              <p className="pl-[4px] text-[16px] font-[400] pb-0 text-[#222222]">
+                night
+              </p>
+            </span>
+            <div className="grid grid-rows-2 grid-cols-2 border-[black] border-[1px] rounded-[12px]">
+              <div className="col-start-1 col-span-1 border-[black] border-b-[1px] border-r-[1px] px-[12px] pt-[26px] pb-[10px]">
+                <div className="text-[12px] font-[700]">CHECK-IN</div>
+                <div className="text-[14px] text-[#000000] font-[200]">
+                  {formattedStartDate}
+                </div>
+              </div>
+              <div className="col-start-2 col-span-1 border-[black] border-b-[1px] px-[12px] pt-[26px] pb-[10px]">
+                <div className="text-[12px] font-[700]">CHECKOUT</div>
+                <div className="text-[14px] text-[#000000] font-[200]">
+                  {formattedEndDate}
+                </div>
+              </div>
+              <div className="col-start-1 col-span-2 pt-[26px] pr-[36px] pb-[10px] pl-[12px]">
+                <div className="text-[12px] font-[700]">GUESTS</div>
+                <div className="text-[14px] text-[#000000] font-[200]">
+                  {noOfGuests} guests
+                </div>
+              </div>
+            </div>
+            <button className="text-white bg-[#FF385C] w-full my-4 p-4 rounded-lg">
+              Reserve
+            </button>
+            <p className="text-[14px] text-[#000000] text-center">
+              You won't be charged yet
+            </p>
+            <HorizontalDivider />
+            <div className="flex justify-between w-full mt-2">
+              <div className="text-[16px] text-[#222222] font-[600]">Total</div>
+              <div className="text-[16px] text-[#222222] font-[600]">£{total}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

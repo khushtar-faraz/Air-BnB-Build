@@ -11,7 +11,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import { Link, useNavigate } from "react-router-dom";
 
-function Header({ placeholder }) {
+function Header({ placeholder, searchDisabled }) {
   const [input, setInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -43,27 +43,32 @@ function Header({ placeholder }) {
   return (
     <header className="sticky top-0 z-50 bg-white grid grid-cols-3 shadow-md p-5 md:px-10">
       {/* left - logo  */}
-      <Link to="/">
-        <div className="relative flex h-10 items-center my-auto cursor-pointer">
+      <div className="relative flex h-10 my-auto">
+        <Link to="/">
           <img
-            className="h-10 object-contain absolute"
+            className="h-10 object-contain absolute cursor-pointer"
             src="https://links.papareact.com/qd3"
             alt=""
           />
-        </div>
-      </Link>
+        </Link>
+      </div>
 
       {/* middle - search */}
-      <div className="flex items-center md:border-2 rounded-full md:shadow-md py-2">
+      <form className="flex items-center md:border-2 rounded-full md:shadow-md py-2">
         <input
           type="text"
           value={input}
+          disabled={searchDisabled}
           onChange={(e) => setInput(e.target.value)}
           placeholder={placeholder || "Start your search"}
           className="flex-grow outline-none bg-transparent pl-5 text-sm text-gray-600 placeholder-gray-400"
         />
-        <SearchIcon onClick={handleSearch} className="hidden md:inline-flex bg-red-400 text-white h-8 rounded-full p-2 md:mx-2 cursor-pointer" />
-      </div>
+        <button onClick={handleSearch} type="submit" className="hidden" />
+        <SearchIcon
+          onClick={!searchDisabled && handleSearch}
+          className="hidden md:inline-flex bg-red-400 text-white h-8 rounded-full p-2 md:mx-2 cursor-pointer"
+        />
+      </form>
       {/* right */}
       <div className="flex items-center space-x-4 justify-end text-gray-500 cursor-pointer">
         <p className="hidden md:inline cursor-pointer">Become a host</p>

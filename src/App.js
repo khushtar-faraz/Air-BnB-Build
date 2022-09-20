@@ -8,11 +8,12 @@ import LargeCard from "./components/LargeCard";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 import Search from "./Search";
-import ListedStay from "./components/ListedStay";
+import ListedStay from "./ListedStay";
 
 function App() {
   const [exploreData, setExploreData] = useState([]);
   const [bigCardData, setBigCardData] = useState([]);
+
   useEffect(() => {
     const fetchData = () => {
       axios
@@ -30,6 +31,7 @@ function App() {
     };
     fetchData();
   }, []);
+
   return (
     <Routes>
       <Route
@@ -80,7 +82,7 @@ function App() {
         path="/search/listedstay"
         element={
           <>
-            <Header />
+            <Header searchDisabled />
             <ListedStay />
           </>
         }

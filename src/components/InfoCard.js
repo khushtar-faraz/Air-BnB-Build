@@ -10,16 +10,20 @@ function InfoCard({
   description,
   star,
   price,
-  total,
   noOfDays,
   noOfGuests,
+  startDate,
+  endDate,
 }) {
   const navigate = useNavigate();
+  let resultantTotal=Math.round(price * noOfDays * noOfGuests);
 
   const handleClick = () => {
     navigate({
       pathname: "/search/listedstay",
-      search: ``,
+      search: `?noOfGuests=${noOfGuests}&startDate=${startDate}&endDate=${endDate}&location=${location}&title=${title}&description=${description}&star=${star}&price=${price}&noOfDays=${noOfDays}&total=${
+        resultantTotal
+      }`,
     });
   };
 
@@ -53,7 +57,7 @@ function InfoCard({
               £{price} / night
             </p>
             <p className="text-right font-extralight">
-              £{price * noOfDays * noOfGuests} Total
+             {`£${resultantTotal} Total`}
             </p>
           </div>
         </div>
