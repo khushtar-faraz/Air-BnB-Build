@@ -37,6 +37,46 @@ function Search() {
             }, 1000);
           })
           .catch((err) => console.log(err.message));
+      } else if (input.trim().toLowerCase() === "liverpool") {
+        axios
+          .get("/fetchSearchDataLiverpool")
+          .then((res) => {
+            setSearchData(res.data);
+            setTimeout(() => {
+              setLoading(false);
+            }, 1000);
+          })
+          .catch((err) => console.log(err.message));
+      } else if (input.trim().toLowerCase() === "manchester") {
+        axios
+          .get("/fetchSearchDataManchester")
+          .then((res) => {
+            setSearchData(res.data);
+            setTimeout(() => {
+              setLoading(false);
+            }, 1000);
+          })
+          .catch((err) => console.log(err.message));
+      } else if (input.trim().toLowerCase() === "edinburgh") {
+        axios
+          .get("/fetchSearchDataEdinburgh")
+          .then((res) => {
+            setSearchData(res.data);
+            setTimeout(() => {
+              setLoading(false);
+            }, 1000);
+          })
+          .catch((err) => console.log(err.message));
+      } else if (input.trim().toLowerCase() === "oxford") {
+        axios
+          .get("/fetchSearchDataOxford")
+          .then((res) => {
+            setSearchData(res.data);
+            setTimeout(() => {
+              setLoading(false);
+            }, 1000);
+          })
+          .catch((err) => console.log(err.message));
       } else {
         setLoading(false);
       }
@@ -56,7 +96,10 @@ function Search() {
 
   return (
     <div>
-      <Header placeholder={`${input} | ${range} | ${noOfGuests} guests`} searchDisabled/>
+      <Header
+        placeholder={`${input} | ${range} | ${noOfGuests} guests`}
+        searchDisabled
+      />
       <main className="flex">
         {!loading && searchData.length > 0 && (
           <section className="flex-grow pt-14 px-6">
