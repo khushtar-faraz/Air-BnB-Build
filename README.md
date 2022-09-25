@@ -1,70 +1,37 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the application
 
-## Available Scripts
+A deal booking web app with beautiful UI and UX. Simply search the city where you want to book a stay and get the listing along with Map. Note this webapp currently supports listing of London, Liverpool, Manchester, Edinburgh and Oxford.
 
-In the project directory, you can run:
 
-### `npm start`
+## Technology used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+HTML, Tailwind CSS, Javascript, React JS, Firebase Cloud Functions(Written in Node JS and Express JS), Mapbox API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## How to use the Application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+First go to this URL https://airbnb-react-build.web.app/
 
-### `npm run build`
+It will show this screen but don't worry this application does not store any data. Click on details and click on proceed to this site unsafe.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Screenshot 2022-09-25 233602](https://user-images.githubusercontent.com/91658563/192161405-70406970-dc75-4728-a3df-097433b62992.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You will land into the homepage which will look like this.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Screenshot 2022-09-25 233707](https://user-images.githubusercontent.com/91658563/192161447-e83fdd53-7c64-4745-8b42-04ee2a452b7d.jpg)
 
-### `npm run eject`
+Now go to search section and put in London or any of the City mentioned in the About the Application section. Select date range and number of guest and click on the search button.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Screenshot 2022-09-25 233756](https://user-images.githubusercontent.com/91658563/192161514-44b193d7-3b01-4450-aa9c-423c658df0f8.jpg)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Now you will get redirected into the lising page where you can see the listed stay along with the per night and total cost based on the number of guest and days entered by you. Not only that, you can also see the location of the listed stays in the integrated map just beside it.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Screenshot 2022-09-25 233924](https://user-images.githubusercontent.com/91658563/192161609-530cfb88-52cd-4c60-b8a7-4371c2bf4180.jpg)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You can click on each listed stay and see the stay details with pictures and facilities provided as shown below.
 
-## Learn More
+![Screenshot 2022-09-25 234052](https://user-images.githubusercontent.com/91658563/192161670-82614dd7-9d1f-44b2-838e-cb4102d79297.jpg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Screenshot 2022-09-25 234140](https://user-images.githubusercontent.com/91658563/192161684-1723250c-5864-4006-9dcd-f130bd594446.jpg)
